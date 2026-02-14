@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    // This allows us to check for existing usernames (Strings) 
-    // instead of searching by numeric IDs.
+    // This method is crucial! It allows us to search by username string.
     User findByUsername(String username);
 }
