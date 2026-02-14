@@ -1,10 +1,23 @@
-const Dashboard = ({ user, styles }) => (
-  <div>
-    <h1 style={styles.title}>Dashboard</h1>
-    <div style={{...styles.card, maxWidth: 'none', marginTop: '20px'}}>
-      <h3>Hello, {user.username}!</h3>
-      <p>Welcome to your workspace.</p>
-    </div>
-  </div>
-);
-export default Dashboard;
+const Dashboard = ({ user, setView, setUser, styles }) => {
+    const logout = () => {
+        setUser(null);
+        setView('login'); 
+    };
+
+    return (
+        <div style={styles.card}>
+            <h2>User Profile</h2>
+            <hr />
+            <p><strong>Username:</strong> {user?.username}</p>
+            <p><strong>Status:</strong> Authenticated</p>
+            <button 
+                style={{...styles.btnPrimary, backgroundColor: 'red'}} 
+                onClick={logout}
+            >
+                Logout
+            </button>
+        </div>
+    );
+};
+
+export default Dashboard; // ADD THIS LINE
